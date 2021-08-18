@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import cardsets from './cardsets';
 import {User} from './poker-lobby/poker-lobby.component';
 import {PokerTableComponent} from './poker-table/poker-table.component';
 
@@ -12,19 +13,25 @@ export class AppComponent implements OnInit {
 
   @ViewChild(PokerTableComponent) table: PokerTableComponent;
   pyro = false;
+  showSettings = false;
 
   receiveUser($event): void {
     this.user = $event;
+    this.showSettings = false;
     localStorage.setItem('poker', JSON.stringify(this.user));
   }
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('poker'));
+    this.user = JSON.parse(localStorage.getItem('poker')) || {};
+    if (!this.user.cards) {
+      // migrate to new profile
+      this.showSettings = true;
+      this.user.cards = cardsets['Simple Fibonacci'];
+    }
   }
 
   logout(): void {
-    localStorage.removeItem('poker');
-    location.reload();
+    this.showSettings = true;
   }
 
   resetSelections(): void {

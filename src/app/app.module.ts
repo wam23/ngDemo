@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { PokerTableComponent } from './poker-table/poker-table.component';
 import { PokerLobbyComponent } from './poker-lobby/poker-lobby.component';
-import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { PokerResultComponent } from './poker-result/poker-result.component';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { PokerResultComponent } from './poker-result/poker-result.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

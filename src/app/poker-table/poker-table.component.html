@@ -6,7 +6,7 @@
     margin-bottom: 0;
     vertical-align: middle; ">&nbsp;</span>
 
-  <span *ngFor="let card of cardset$ | async" [ngClass]="{'card-selected' : selectedVote==card}"
+  <span *ngFor="let card of cardset" [ngClass]="{'card-selected' : selectedVote==card}"
           [attr.disabled]="cardDisabled()" class="card" (click)="vote(card)">{{card}}</span>
   <p class="m-2 status" *ngIf="status"><small>{{status}}</small></p>
 </div>

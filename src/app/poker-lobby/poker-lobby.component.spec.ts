@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { PokerLobbyComponent } from './poker-lobby.component';
 
@@ -10,7 +10,7 @@ describe('PokerLobbyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule, FormsModule],
+      imports: [HttpClientModule, ReactiveFormsModule],
       declarations: [PokerLobbyComponent]
     })
       .compileComponents();

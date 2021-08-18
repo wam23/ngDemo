@@ -9,9 +9,9 @@
       </div>
     </nav>
     <main class="flex-fill">
-      <app-poker-lobby [hidden]="user" (userEmitter)="receiveUser($event)"></app-poker-lobby>
-      <app-poker-table *ngIf="user" [user]="user"></app-poker-table>
-      <app-poker-result *ngIf="user" [user]="user" (resetSelections)="resetSelections()"
+      <app-poker-lobby *ngIf="showSettings" [user]="user" (userEmitter)="receiveUser($event)"></app-poker-lobby>
+      <app-poker-table *ngIf="!showSettings" [user]="user"></app-poker-table>
+      <app-poker-result *ngIf="!showSettings" [user]="user" (resetSelections)="resetSelections()"
                         (showPyro)="showPyro($event)"></app-poker-result>
     </main>
     <footer class="container">
